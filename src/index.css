@@ -1,13 +1,348 @@
-body {
+
+*{
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+body{
+  height: 100vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.App{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+main{
+  flex: 1;
+  padding: 10px;
+  border-bottom: 2px solid #000000;
+}
+
+.header{
+  border-bottom: 2px solid #000000;
+  display: flex; 
+  justify-content: flex-end;
+  align-items: stretch;
+}
+.Person{
+  height: 150px;
+  align-self: flex-end;
+  float: right;
+}
+.winimg {
+  align-self: center ;
+  width: 95%;
+}
+.zloysnow{
+  align-self: center ;
+  width: 95%;
+}
+.TextOfPerson{
+  border:  2px solid black;
+  width: auto;
+  margin: 10px;
+  border-radius: 15px;
+  float: left;
+  overflow: auto;
+}
+.ConnentOfPerson{
+  font-family: 'Roboto Mono', monospace;
+  font-weight:600;
+  font-size: 15px;
+  margin: 10px;
+  white-space:pre-line ;
+}
+.nextButton
+{
+	float:right;
+  margin: 20px;
+	height: 5px;
+	border-radius: 20px;
+	background-color: hsl(122, 82%, 52%, 0.5);
+	color: black;
+	padding: 15px 50px;
+	width: 20%;
+	font-size: 20px;
+	font-weight: 500;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+/* Rectangle 934 */
+
+.BoxAppWords{
+  width: 40px;
+  height: 40px;
+  border: 2px solid #000000;
+  border-radius: 5px;
+  font-family: 'Roboto Mono', monospace;
+  font-weight:600;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.inputAppWords{
+  width: 90%;
+  height: 40px;
+  margin: auto;
+  background-color:white;
+  border: 2px solid #000000;
+  border-radius: 5px;
+  font-family: 'Roboto Mono', monospace;
+  font-weight:600;
+  font-size: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  text-transform: lowercase;
+  white-space: nowrap;
+}
+.Boxes{
+  margin-top: 50px;
+  display: flex;
+  justify-content:space-around;
+}
+
+.words{
+  display: flex;
+  justify-content:space-around;
+  margin-top: 50px;
+  font-family: 'Roboto Mono', monospace;
+  font-weight:600;
+  font-size: 20px;
+  align-items: center;
+  text-align: center;
+  white-space:pre-line ;
+}
+.timer{
+  display: flex;
+  justify-content:space-around;
+  margin-top: 25px;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 500;
+  font-size: 20px;
+
+}
+
+.buttonOK{
+  display: inline-block;
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+  text-decoration: none;
+  user-select: none;
+  padding: .5em 2em;
+  outline: none;
+  border: 2px solid;
+  border-radius: 1px;
+  transition: 0.2s;
+  margin-left: 20px;
+}
+.wrap{
+  display: flex;
+  justify-content:space-around;
+  margin-top: 10px;
+}
+.maps{
+  height: auto;
+  width:100%;
+  margin-top: 20px;
+}
+.buttons__content{
+	padding: 10px
+}
+
+.button
+{
+   font-family:'Roboto Mono', monospace;
+   border: 0;
+   border-radius: 10px;
+   background: #7d7e7be2;
+   color: black;
+   min-width: 140px;
+   font-size: 25px;
+   font-weight: 500;
+   display: block;
+   margin: 10px auto;
+   word-wrap: break-word;
+   transition: 0.2s all;
+   box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+   padding: 0 15px 0 15px;
+   overflow: hidden;
+   hyphens:auto;
+   
+}
+.button:hover:not(:active) {
+  box-shadow:
+   0 0 3px rgba(0,0,0,0) inset,
+
+}
+.button:active {
+  background: linear-gradient(rgb(250,250,250), rgb(235,235,235));
+  box-shadow:
+   0 0 3px rgba(0,0,0,.5) inset,
+   0 1px 1px 1px rgba(255,255,255,.4),
+   0 -1px 1px 1px rgba(0,0,0,.1);
+}
+
+
+.buttons__column{
+  display: flex;
+  justify-content: space-around;
+}
+.boxForNumber{
+  width: 50px;  
+  height: 50px;
+  border-radius: 25%;
+  border: 2px solid #000000;
+  font-family: 'Roboto Mono', monospace;
+  font-weight:600;
+  font-size: 25px;
+  align-items: center;
+  text-align: center;
+}
+.textForNumber{
+  font-family: 'Roboto Mono', monospace;
+  font-weight:600;
+  font-size: 30px;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 5px;
+}
+.wrapBox{
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  
+}
+.box{
+ width: 150px; 
+}
+.imgBox{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.textBox{
+  font-family: 'Roboto Mono', monospace;
+  font-weight:600;
+  font-size: 20px;
+  margin: 10px;
+  padding: 0 10px 0 10px;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  text-align: center;
+  height: auto; 
+  line-height: 35px;
+  position: relative;
+}
+.textBox:before {
+    content: '';
+    position: absolute;
+    right: -25px;
+    bottom: 20px;
+    width: 0;
+    height: 0;
+    border-left: 25px solid #000000;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+}  
+.bossFrog2 {
+   height: 180px;
+   align-self: flex-end;
+}
+.bossFrog {
+   height: 180px;
+   align-self: flex-end;
+   animation: rotate 0.2s infinite;
+}
+@keyframes rotate {
+ 0%{transform: rotate(-10deg)}
+ 100%{transform: rotate(10deg)}
+}
+.heroes2{
+  height: 130px;
+  align-self: flex-end;
+}
+.heroes {
+   height: 130px;
+   align-self: flex-end;
+   animation: heroes 0.2s infinite;
+}
+@keyframes heroes {
+ 0%{transform: rotate(-10deg)}
+ 100%{transform: rotate(10deg)}
+}
+
+
+.wrapHeroes{
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+}
+.HP{
+  font-family: 'Roboto Mono', monospace;
+  font-weight:600;
+  font-size: 20px;
+  margin: 10px;
+}
+
+.contentHeroes{
+  align-self: flex-end;
+}
+
+.imgs2425{
+  height: 350px;
+  overflow: scroll 
+}
+.info{
+    height: 30px;
+}
+.buttonInfo{
+    background-color: #ffffff;
+    padding: 0px;
+    border-radius: 50%;
+    border: none;
+    display: none;
+}
+.infoText{
+  border:2px solid #000000;
+  background-color: #ffffff;
+  border-radius:15px;
+  display: none;
+  position: absolute;
+  margin-left: 10%;
+  text-align: left;
+  justify-content: center;
+  width: 70%;
+}
+
+.ConnentOfinfoText{
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 600;
+    font-size: 15px;
+    margin: 10px;
+    white-space: pre-line;
+}
+.imgMacaron, .imgUbileinoe, .imgOsobuy{
+  position: absolute;
+  border:2px solid black;
+  display: none;
+  margin-left: 10%;
+  height: 25%;
+  border-radius:15px;
+}
+.imgCashew{
+  display: block;
+  border:2px solid black;
+  width: 70%;
+  border-radius:15px;
+  margin: 10px auto;
+}
+
+.wrapImgText{
+   display: block;
 }
