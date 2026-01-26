@@ -25,10 +25,12 @@ function toBoss(){
     }  
       emptyArray.sort((a, b) => a - b)
     if(JSON.stringify(emptyArray) === JSON.stringify(checkedArray)){
-      navigate('/toBoss')
+      document.querySelector('.buttonToBoss').style.display = 'block'
     }      
 }
-
+const getToBoss = () =>{
+  navigate('/toBoss')
+}
 
 
 const getTrue = () =>{
@@ -84,7 +86,7 @@ const checked_4 = () => {
       }
     }
     if(key === 1){
-      const element = document.querySelector('.infoText').style.display
+      const element = document.querySelector('.imgMacaron').style.display
       if(element === 'none' || element ===''){
         document.querySelector('.imgMacaron').style.display = 'block'
       } else {
@@ -137,9 +139,10 @@ function getimg(){
       <p className="ConnentOfPerson">{data.contents[key].textPerson}</p>
     </div>
     <img className="Person" src={Person} alt="Person"/>
+    
   </div>
-      <div className='buttons__content'>
-        
+  <button onClick={getToBoss} className='buttonToBoss'>Злая плесень</button>
+      <div className='buttons__content'>        
         <button onClick={getInfo} className='buttonInfo'>
           <div className='wrapImgText'>
             <div className='infoText'>
@@ -149,9 +152,8 @@ function getimg(){
             <img className="imgUbileinoe" src={ubileinoe} alt="ubileinoe"/>
             <img className="imgOsobuy" src={osobuy} alt="osobuy"/>
           </div>
-        <img className="info" src={info} alt="info"/>
-         
-        </button>
+        <img className="info" src={info} alt="info"/> 
+        </button> 
         {getimg()}
         <button onClick={checked_1} className="button">{data.contents[key].answer.answer_1[0]}</button>
 				<button onClick={checked_2} className="button">{data.contents[key].answer.answer_2[0]}</button>

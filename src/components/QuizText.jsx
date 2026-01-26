@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useNavigate, useLocation } from "react-router-dom"
 import useSound from 'use-sound'; 
 import win from '../sound/winLvl.mp3'
+import info from '../pictures/Info.png'
 
 import lulakebab from '../pictures/lulakebab.png';
 import pure from '../pictures/pure.png';
@@ -23,6 +24,7 @@ import pitahay from '../pictures/pitahay.png';
 import rediska from '../pictures/rediska.png';
 import patison from '../pictures/patison.png';
 import repa from '../pictures/repa.png';
+import pattison from '../pictures/pattison.png';
 
 const QuizText = () => {
 const location = useLocation()  
@@ -40,8 +42,11 @@ function toBoss(){
     }  
       emptyArray.sort((a, b) => a - b)
     if(JSON.stringify(emptyArray) === JSON.stringify(checkedArray)){
-      navigate('/toBoss')
+      document.querySelector('.buttonToBoss').style.display = 'block'
     }      
+}
+const getToBoss = () =>{
+  navigate('/toBoss')
 }
 
 const checked = () => {
@@ -51,6 +56,9 @@ const checked = () => {
     localStorage.setItem(key, true)
     document.querySelector('.inputAppWords').style.backgroundColor = '#2adc2a'
     document.querySelector('.ConnentOfPerson').innerHTML = "Правильно, следуй дальше"
+    if(key === 29){
+    document.querySelector('.buttonInfo').style.display = 'block'
+    }
     play()
     toBoss()
    }else{
@@ -113,6 +121,16 @@ function getimg(){
     return <img className="imgCashew" src={repa} alt="repa"/>
   }
 }
+  const getInfo = () => {
+    if(key === 29){
+      const element = document.querySelector('.imgMacaron').style.display
+      if(element === 'none' || element ===''){
+        document.querySelector('.imgMacaron').style.display = 'block'
+      } else {
+        document.querySelector('.imgMacaron').style.display = 'none'
+      }
+    }
+  }
 
 
   return (
@@ -124,8 +142,17 @@ function getimg(){
     </div>
     <img className="Person" src={Person} alt="Person"/>
   </div>
+  
+  <button onClick={getInfo} className='buttonInfo'>
+          <div className='wrapImgText'>
+            <img className="imgMacaron" src={pattison} alt="pattison"/>
+          </div>
+        <img className="info" src={info} alt="info"/> 
+  </button>
+  <button onClick={getToBoss} className='buttonToBoss'>Злая плесень</button>
   {getimg()}
     <div className='wrap'> 
+      
       <input 
         id="masswge" 
         placeholder='введите ответ' 

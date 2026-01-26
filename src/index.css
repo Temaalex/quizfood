@@ -173,7 +173,6 @@ main{
    padding: 0 15px 0 15px;
    overflow: hidden;
    hyphens:auto;
-   
 }
 .button:hover:not(:active) {
   box-shadow:
@@ -302,6 +301,7 @@ main{
     height: 30px;
 }
 .buttonInfo{
+    margin: 10px;
     background-color: #ffffff;
     padding: 0px;
     border-radius: 50%;
@@ -345,4 +345,38 @@ main{
 
 .wrapImgText{
    display: block;
+}
+
+
+.buttonToBoss
+{
+   font-family:'Roboto Mono', monospace;
+   float: right;
+   border: 0;
+   border-radius: 10px;
+   background: #4545dae2;
+   color: black;
+   min-width: 140px;
+   font-size: 25px;
+   font-weight: 500;
+   display: none;
+   margin: 10px auto;
+   word-wrap: break-word;
+   transition: 0.2s all;
+   box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+   overflow: hidden;
+   hyphens:auto;
+   padding: 0 15px 0 15px;
+}
+.buttonToBoss:hover:not(:active) {
+  box-shadow:
+   0 0 3px rgba(0,0,0,0) inset,
+
+}
+.buttonToBoss:active {
+  background: linear-gradient(rgb(53, 212, 17), rgb(75, 217, 15));
+  box-shadow:
+   0 0 3px rgba(0,0,0,.5) inset,
+   0 1px 1px 1px rgba(255,255,255,.4),
+   0 -1px 1px 1px rgba(0,0,0,.1);
 }

@@ -4,8 +4,7 @@ import data from '../bd.json';
 import { useState, useEffect  } from 'react';
 import { useNavigate, useLocation } from "react-router-dom"
 import useSound from 'use-sound'; 
-import soundOne from '../sound/kick.mp3'
-import soundTwo from '../sound/kick.mp3'
+import kick from '../sound/kick.mp3'
 import gameOver from '../sound/gameOverLvl.mp3'
 import win from '../sound/winboss.mp3'
 
@@ -13,8 +12,7 @@ const QuizBoss = () => {
   let navigate = useNavigate();
   const location = useLocation()
 
-      const [playSoundhitHeroes] = useSound(soundOne);
-      const [playSoundhitBoss] = useSound(soundTwo);
+      const [playSoundhit] = useSound(kick);
       const [playSoundgameOver] = useSound(gameOver);
       const [playSoundwin] = useSound(win);
 
@@ -32,21 +30,21 @@ const QuizBoss = () => {
 
   const [bossFrog, setShake] = useState(false)
   function move(){
-    playSoundhitHeroes()
+    playSoundhit()
     setShake(true)
     setTimeout(()=>setShake(false),1000)
   }
 
   const [heroes, setShakeHeroes] = useState(false)
   function moveHer(){
-    playSoundhitBoss()
+    playSoundhit()
     setShakeHeroes(true)
     setTimeout(()=>setShakeHeroes(false),200)
   }
 
   let [key, setKey] = useState(Number(location.pathname.slice(1)));
   const [HPboss, setHPBoss] = useState(1000)
-  const [HPheroes, setHPHeroes] = useState(500)
+  const [HPheroes, setHPHeroes] = useState(300)
   
   if(count === 0){
         moveHer()
@@ -55,17 +53,17 @@ const QuizBoss = () => {
         
         if(HPheroes === 100){
           playSoundgameOver()
-          navigate('/0')
-          setKey(42)
+          navigate('/ErrorBoss')
+          setKey(32)
         }  
     }
 
  function getMap(){ 
-    if(key === 51){     
+    if(key === 41){     
       playSoundwin()
       move()
       key = Number(location.pathname.slice(1))
-      navigate('/1001')
+      navigate('/TheEnd')
     }
  }
 function update_1(){
@@ -81,8 +79,8 @@ function update_1(){
       setHPHeroes(HPheroes-100)
       if(HPheroes === 100){
         playSoundgameOver()
-        navigate('/0')
-        setKey(42)
+        navigate('/ErrorBoss')
+        setKey(32)
       }
     }
   }
@@ -99,8 +97,8 @@ function update_1(){
       setHPHeroes(HPheroes-100)
       if(HPheroes === 100){
         playSoundgameOver()
-        navigate('/0')
-        setKey(42)
+        navigate('/ErrorBoss')
+        setKey(32)
       }
     }
   }
@@ -116,8 +114,8 @@ function update_1(){
       setHPHeroes(HPheroes - 100)
       if(HPheroes === 100){
         playSoundgameOver()
-        navigate('/0')
-        setKey(42)
+        navigate('/ErrorBoss')
+        setKey(32)
       }
     }
     
@@ -135,8 +133,8 @@ function update_1(){
       setHPHeroes(HPheroes - 100)
       if(HPheroes === 100){
         playSoundgameOver()
-        navigate('/0')
-        setKey(42)
+        navigate('/ErrorBoss')
+        setKey(32)
       }
     }
   }
@@ -146,17 +144,17 @@ function update_1(){
     <div className="wrapHeroes">
       <div className='contentHeroes'>
           <img className={heroes ? "heroes":"heroes2"} src={Person} alt="Person"/>
-          <p className='HP'>Дед мороз: {HPheroes}HP</p>
+          <p className='HP'>Еданосец: {HPheroes}HP</p>
       </div>
       <div>
         <img className={bossFrog ? "bossFrog" : "bossFrog2"} src={Caries} alt="bossCaries"/>
-        <p className='HP'>Душнило: {HPboss}HP</p>
+        <p className='HP'>ПЛЕСЕНЬ: {HPboss}HP</p>
       </div>
     </div>
   </div>
     <div>
       <div className='timer' >Время на ответ:{count}</div>
-      <div className='words'>{data.contents[key].textDoctor}</div>
+      <div className='words'>{data.contents[key].textPerson}</div>
        <div className='buttons__content'>
             <button onClick={update_1} className="button">{data.contents[key].answer.answer_1[0]}</button>
             <button onClick={update_2} className="button">{data.contents[key].answer.answer_2[0]}</button>

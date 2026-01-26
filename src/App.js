@@ -7,6 +7,7 @@ import QuizBoss from './components/QuizBoss';
 import QuizText from './components/QuizText';
 import TheEnd from './components/TheEnd';
 import ToBoss from './components/toBoss'
+import ErrorBoss from './components/ContentErrorToBoss'
 
 
 function App() {
@@ -50,20 +51,20 @@ function App() {
 <Route path="/29" element={<QuizText/>} />
 <Route path="/30" element={<QuizText/>} />
 
-{/* После открытия коробки */}
-<Route path="/31" element={<ToBoss/>} />
-
+{/* Ссылка на босса */}
+<Route path="/toBoss" element={<ToBoss/>} />
+<Route path="/ErrorBoss" element={<ErrorBoss/>} />
+{/* Босс */}
+<Route path="/32" element={<QuizBoss/>} />
 {/* Финиш */}
-<Route path="/42" element={<TheEnd/>} />
+<Route path="/TheEnd" element={<TheEnd/>} />
 {/* 
-доделать ошибки (блокировка на 10 сек)
-путь к боссу (сделать кнопку)
-селать босса (основа вопросы, предыдущие), сделать логику возврата к боссу
-финиш (код от сундука и чискта локалсторидж)
+-доделать ошибки (блокировка на 10 сек) 2шт
+-чискта локалсторидж финиша
+-польза продуктов
+-2 правильных ответа
 
-картинки сжать
-
-
+-Полная проверка
 */}
 
 

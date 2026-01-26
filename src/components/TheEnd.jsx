@@ -1,5 +1,5 @@
 import Person from '../pictures/Persone.png';
-//import winimg from '../pictures/winimg.png'
+import winimg from '../pictures/boss2.png'
 import data from '../bd.json';
 
 
@@ -8,14 +8,14 @@ const TheEnd = () => {
   return (
     <main>
       <div className="header">
-      <div className="TextOfDoctor">
-        <p className="ConnentOfDoctor">{data.contents[52].textDoctor}</p>
+      <div className="TextOfPerson">
+        <p className="ConnentOfPerson">{data.contents[42].textPerson}</p>
       </div>
       <img className="Person"src={Person}alt="Person"/>
     </div>
-    {/* <div className='wrapBox'>
+    <div className='wrapBox'>
       <img className="winimg" src={winimg}alt="winimg"/>
-    </div> */}
+    </div>
   </main>
   )
   
