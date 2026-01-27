@@ -51,14 +51,17 @@ const getToBoss = () =>{
 
 const checked = () => {
   let answer = data.contents[key].answer;
+  let answerOne = data.contents[key].answer[0]
+  let answerTwo = data.contents[key].answer[1]
   let check = document.querySelector('.inputAppWords')?.value.replace(/\s/g, "");
-  if(check.toLowerCase() === answer) {
+  if(check.toLowerCase() === answer ||
+     check.toLowerCase() === answerOne ||
+     check.toLowerCase() === answerTwo
+    ) {
     localStorage.setItem(key, true)
     document.querySelector('.inputAppWords').style.backgroundColor = '#2adc2a'
     document.querySelector('.ConnentOfPerson').innerHTML = "Правильно, следуй дальше"
-    if(key === 29){
     document.querySelector('.buttonInfo').style.display = 'block'
-    }
     play()
     toBoss()
    }else{
@@ -122,16 +125,24 @@ function getimg(){
   }
 }
   const getInfo = () => {
+    const element = document.querySelector('.imgMacaron').style.display
+    const elementOne = document.querySelector('.infoText').style.display
     if(key === 29){
-      const element = document.querySelector('.imgMacaron').style.display
       if(element === 'none' || element ===''){
         document.querySelector('.imgMacaron').style.display = 'block'
       } else {
         document.querySelector('.imgMacaron').style.display = 'none'
       }
+    } else {
+    if(elementOne === 'none' || elementOne ===''){
+        document.querySelector('.infoText').style.display = 'block'
+      } else {
+        document.querySelector('.infoText').style.display = 'none'
+      }
+
     }
   }
-
+  
 
   return (
   <div className="App">
@@ -146,6 +157,9 @@ function getimg(){
   <button onClick={getInfo} className='buttonInfo'>
           <div className='wrapImgText'>
             <img className="imgMacaron" src={pattison} alt="pattison"/>
+          </div>
+          <div className='infoText'>
+              <p className='ConnentOfinfoText'>{data.contents[key].why}</p>  
           </div>
         <img className="info" src={info} alt="info"/> 
   </button>
