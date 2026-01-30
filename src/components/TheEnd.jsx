@@ -5,6 +5,7 @@ import data from '../bd.json';
 
 
 const TheEnd = () => {
+  localStorage.clear()
   return (
     <main>
       <div className="header">

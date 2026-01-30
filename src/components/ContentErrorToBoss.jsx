@@ -3,46 +3,35 @@ import Persone from '../pictures/Persone.png';
 import useSound from 'use-sound'; 
 import ErrorSound from '../sound/gameOverLvl.mp3';
 import { useNavigate, useLocation } from "react-router-dom";
+import { useState, useEffect  } from 'react';
 
 
 
 const ErrorBoss = () => {
-  //localStorage.setItem('check', 'false');
   let text = "Попробуем еще раз через несколько секунд?"
+  const [count, setCount] = useState(10);
   const [play] = useSound(ErrorSound);
-  play()
+  if(count === 10){
+	play()
+  }
+  
   let navigate = useNavigate();
   const next = () => {
+	if(count===0){
+		console.log(count)
       navigate('/toBoss')
-  }
-  //таймер
-  	
-	let x=10;
-	function timer(){
-		let timer;
-		countdown();
-		function countdown(){
-			console.log(x)
-		x--
-		if (x===0){
-			clearTimeout(timer);
-			//localStorage.removeItem('check')
-			next()
-		}else{
-			timer = setTimeout (countdown, 1000);
-		}
-		}
 	}
-window.onhashchange = function() { window.location.hash = '/ErrorBoss'; }
-timer()
-  //блок 
-//   if(localStorage.getItem('check') === 'false'){
-// 	window.location.hash = '/ErrorBoss'
-// 	window.onhashchange = function() { window.location.hash = '/ErrorBoss'; }
-//   } else {
-// 	window.location.hash = '/toBoss'
-// 	window.onhashchange = function() { window.location.hash = '/toBoss'; }
-//   }
+  }
+	window.onhashchange = function() { window.location.hash = '/ErrorBoss'; }
+	
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCount((prevCount) => prevCount - 1);  
+        }, 1000);
+        return () => clearInterval(interval); 
+        
+    }, [next()]); 
+
 
   
   
@@ -54,7 +43,7 @@ timer()
       </div>
       <img className="Person" src={Persone} alt="Persone"/>
     </div>
-      <div className='words'>{x}</div>
+      <div className='words'>{count}</div>
     </main>
   )
   

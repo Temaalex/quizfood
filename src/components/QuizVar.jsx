@@ -11,6 +11,7 @@ import ubileinoe from '../pictures/ubileinoe.png'
 import osobuy from '../pictures/osobuy.png'
 
 const QuizTwentyOne = () => {
+localStorage.removeItem('check')
 const location = useLocation()  
 let [key, setKey] = useState(Number(location.pathname.slice(1)));
 let navigate = useNavigate();
@@ -46,6 +47,7 @@ const checked_1 = () => {
     const elements = document.querySelectorAll('.button')
     elements[0].style.background = '#2adc2a'
    }else{
+    localStorage.setItem('check', key)
      navigate('/0')
    }
 }
@@ -55,6 +57,7 @@ const checked_2 = () => {
     const elements = document.querySelectorAll('.button')
     elements[1].style.background = '#2adc2a'
    }else{
+    localStorage.setItem('check', key)
      navigate('/0')
    }
 }
@@ -64,6 +67,7 @@ const checked_3 = () => {
       const elements = document.querySelectorAll('.button')
       elements[2].style.background = '#2adc2a'
     }else{
+      localStorage.setItem('check', key)
      navigate('/0')
     }
 }
@@ -73,6 +77,7 @@ const checked_4 = () => {
       const elements = document.querySelectorAll('.button')
       elements[3].style.background = '#2adc2a'
     }else{
+      localStorage.setItem('check', key)
      navigate('/0')
     }
   }
