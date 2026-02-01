@@ -2,29 +2,26 @@ import data from '../bd.json';
 import Persone from '../pictures/Persone.png';
 import useSound from 'use-sound'; 
 import ErrorSound from '../sound/gameOverLvl.mp3'
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect  } from 'react';
 
 const Error = () => {
+  let [key, setKey] = useState(localStorage.getItem('check'));
   const value = localStorage.getItem('check');  
   let text = data.contents[0].error_text_Person;
   const [count, setCount] = useState(10);
   const [play] = useSound(ErrorSound);
   if(count === 10){
-	play()
+	  play()
   }
-  console.log('/'+value)
   let navigate = useNavigate();
   const next = () => {
-	if(count===0){
-		console.log(count)
-    window.onhashchange = function() { window.location.hash = '/'+value; }
-    navigate('/'+value)
-   
-	}
+    if(count===0){
+      localStorage.removeItem('check')
+      navigate('/'+key)
+    }
   }
-	window.onhashchange = function() { window.location.hash = '/0'; }
-	
+
     useEffect(() => {
         const interval = setInterval(() => {
             setCount((prevCount) => prevCount - 1);  

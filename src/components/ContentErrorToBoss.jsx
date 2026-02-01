@@ -1,4 +1,3 @@
-import data from '../bd.json';
 import Persone from '../pictures/Persone.png';
 import useSound from 'use-sound'; 
 import ErrorSound from '../sound/gameOverLvl.mp3';
@@ -18,7 +17,6 @@ const ErrorBoss = () => {
   let navigate = useNavigate();
   const next = () => {
 	if(count===0){
-		console.log(count)
       navigate('/toBoss')
 	}
   }

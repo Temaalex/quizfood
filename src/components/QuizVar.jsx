@@ -11,17 +11,34 @@ import ubileinoe from '../pictures/ubileinoe.png'
 import osobuy from '../pictures/osobuy.png'
 
 const QuizTwentyOne = () => {
-localStorage.removeItem('check')
-const location = useLocation()  
+  const location = useLocation()  
 let [key, setKey] = useState(Number(location.pathname.slice(1)));
-let navigate = useNavigate();
+
+if(key === Number(location.pathname.slice(1))){
+  console.log(true)
+}else{
+  console.log(false)
+  setKey(Number(location.pathname.slice(1)))
+  document.querySelector('.buttonInfo').style.display = 'none'
+  const elements = document.querySelectorAll('.button')
+  elements[0].style.background  = '#7d7e7be2'
+  elements[1].style.background  = '#7d7e7be2'
+  elements[2].style.background  = '#7d7e7be2'
+  elements[3].style.background  = '#7d7e7be2'
+}
+  
+  let navigate = useNavigate();
+  if(localStorage.getItem('check')!== null){
+    navigate('/0')
+  }
+
+
 const [play] = useSound(Winound);
 function toBoss(){
     let emptyArray = new Array()
     let checkedArray = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"]
     for (let i = 0; i < localStorage.length; i++) {  
-      const key = localStorage.key(i);  
-      const value = localStorage.getItem(key);  
+      const key = localStorage.key(i);   
       emptyArray.push(key)
     }  
       emptyArray.sort((a, b) => a - b)

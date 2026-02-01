@@ -27,10 +27,23 @@ import repa from '../pictures/repa.png';
 import pattison from '../pictures/pattison.png';
 
 const QuizText = () => {
+
 const location = useLocation()  
 let [key, setKey] = useState(Number(location.pathname.slice(1)));
+if(key === Number(location.pathname.slice(1))){
+  console.log(true)
+}else{
+  console.log(false)
+  setKey(Number(location.pathname.slice(1)))
+  document.querySelector('.buttonInfo').style.display = 'none'
+  document.querySelector('.inputAppWords').style.backgroundColor = '#ffffff'
+  document.querySelector('.inputAppWords').value = ''
+}
 let navigate = useNavigate();
 const [play] = useSound(win);
+if(localStorage.getItem('check')!== null){
+    navigate('/0')
+  }
 
 function toBoss(){
     let emptyArray = new Array()
@@ -65,6 +78,7 @@ const checked = () => {
     play()
     toBoss()
    }else{
+     localStorage.setItem('check', key)
      navigate('/0')
    }
 }
@@ -168,7 +182,7 @@ function getimg(){
     <div className='wrap'> 
       
       <input 
-        id="masswge" 
+        id="masswge"
         placeholder='введите ответ' 
         className='inputAppWords'
         ></input>

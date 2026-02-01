@@ -1,7 +1,7 @@
 import Person from '../pictures/Persone.png';
 import Boss from '../pictures/Boss.png';
 import data from '../bd.json';
-import { useNavigate, useLocation } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import useSound from 'use-sound';
 import boss from '../sound/boss.mp3'
 

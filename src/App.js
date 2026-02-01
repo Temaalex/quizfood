@@ -58,13 +58,6 @@ function App() {
 <Route path="/32" element={<QuizBoss/>} />
 {/* Финиш */}
 <Route path="/TheEnd" element={<TheEnd/>} />
-{/* 
-+?доделать ошибки (блокировка на 10 сек) 2шт
-+?чискта локалсторидж финиша
--Полная проверка
-*/}
-
-
     </Routes>
   );
 }
