@@ -52,6 +52,7 @@ const getToBoss = () =>{
 
 
 const getTrue = () =>{
+      document.querySelector('.ConnentOfPerson').innerHTML = "Правильно, следуй дальше"
       document.querySelector('.buttonInfo').style.display = 'block'
       play()
       localStorage.setItem(key, true)
