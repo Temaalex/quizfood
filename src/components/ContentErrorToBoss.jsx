@@ -8,9 +8,9 @@ import { useState, useEffect  } from 'react';
 
 const ErrorBoss = () => {
   let text = "Попробуем еще раз через несколько секунд?"
-  const [count, setCount] = useState(10);
+  const [count, setCount] = useState(30);
   const [play] = useSound(ErrorSound);
-  if(count === 10){
+  if(count === 30){
 	play()
   }
   
