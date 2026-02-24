@@ -150,13 +150,59 @@ function getimg(){
   if(key===9){
     return <img className="imgCashew" src={cashew} alt="cashew"/>
   }
-}
+} 
+ const getProgress = () => {
+     for (let i = 0; i < localStorage.length; i++) {  
+      const key = localStorage.key(i);  
+      const value = localStorage.getItem(key);  
+      document.querySelectorAll(".textProgress")[key-1].style.backgroundColor  = '#2adc2a'
+    }  
+    const elementOne = document.querySelector('.textProgressDisplay').style.display
+    if(elementOne === 'none' || elementOne ===''){
+        document.querySelector('.textProgressDisplay').style.display = 'block'
+      } else {
+        document.querySelector('.textProgressDisplay').style.display = 'none'
+      }
+  }
   
 
 
   return (
   <div className="App">
   <main>
+  <button onClick={getProgress} className='buttonProgress'>Прогресс</button>
+  <div className='textProgressDisplay'>
+    <p className='textProgress'>1</p>
+    <p className='textProgress'>2</p>
+    <p className='textProgress'>3</p>
+    <p className='textProgress'>4</p>
+    <p className='textProgress'>5</p>
+    <p className='textProgress'>6</p>
+    <p className='textProgress'>7</p>
+    <p className='textProgress'>8</p>
+    <p className='textProgress'>9</p>
+    <p className='textProgress'>10</p>
+    <p className='textProgress'>11</p>
+    <p className='textProgress'>12</p>
+    <p className='textProgress'>13</p>
+    <p className='textProgress'>14</p>
+    <p className='textProgress'>15</p>
+    <p className='textProgress'>16</p>
+    <p className='textProgress'>17</p>
+    <p className='textProgress'>18</p>
+    <p className='textProgress'>19</p>
+    <p className='textProgress'>20</p>
+    <p className='textProgress'>21</p>
+    <p className='textProgress'>22</p>
+    <p className='textProgress'>23</p>
+    <p className='textProgress'>24</p>
+    <p className='textProgress'>25</p>
+    <p className='textProgress'>26</p>
+    <p className='textProgress'>27</p>
+    <p className='textProgress'>28</p>
+    <p className='textProgress'>29</p>
+    <p className='textProgress'>30</p>
+  </div>
   <div className="header">
     <div className="TextOfPerson">
       <p className="ConnentOfPerson">{data.contents[key].textPerson}</p>

@@ -7,6 +7,9 @@ import { useState, useEffect  } from 'react';
 
 
 const ErrorBoss = () => {
+  //localStorage.getItem('checkBoss');
+
+
   let text = "Попробуем еще раз через несколько секунд?"
   const [count, setCount] = useState(30);
   const [play] = useSound(ErrorSound);
